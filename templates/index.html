@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% include 'components/_social.html' %}
+{% endblock %}
+
+<!-- Paywall defaults at meterA. Change below if needed  -->
+{% block paywall %}meterA{% endblock %}
+
+<!-- Authors for analytics to track -->
+{% block author %}Lucio Villa, Emma O'Neill{% endblock %}
+
+{% block content %}
+
+	{% include 'components/_header.html' %}
+
+	<main class="container">
+	  <div class="row">
+   		<h1></h1>
+	  
+
+	  </div>
+	</main>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $(document).ready(function() {
+    App.init();
+  });
+</script>
+{% endblock %}
