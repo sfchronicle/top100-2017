@@ -12,21 +12,31 @@
 
 {% block content %}
 
-	{% include 'components/_header.html' %}
+	
+	{% set photos = restaurant.wcm_img.split(' ') %}
 
-	<main class="container">
-	  <div class="row">
-
-
+	<div class="restaurant">
 	  
-		<div class="column restaurant-index">
-			
-			<h5>Restaurant: {{ restaurant.Name }}</h5>
+		
+		<div class='header'>
+			<h1>{{restaurant.Name}}</h1>
 		</div>
-	  
 
-	  </div>
-	</main>
+	  	<div class="image">
+	  		<img src="http://ww2.hdnux.com/photos/54/11/64/{{ photos[1] }}/3/1200x0.jpg">
+	  	</div>
+		
+			
+		
+			 {% for r in article %}
+            	<p>{{ r.Text }}</p>
+  			{% endfor %}
+
+			
+			
+	 
+
+	</div>
 
 {% endblock %}
 

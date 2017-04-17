@@ -6,7 +6,7 @@ from project import *
 
 if __name__ == '__main__':
 
-	freezer.run(debug=True)
+	# freezer.run(debug=True)
 	
 	# Start app
 	app.config['DEBUG'] = True

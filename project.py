@@ -22,13 +22,15 @@ app.config['HASHTAG'] = ''
 
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-info_url = os.path.join(SITE_ROOT, "data", "info.sheet.json")
-with open(info_url) as rest:
+
+info = os.path.join(SITE_ROOT, "data", "info.sheet.json")
+with open(info) as rest:
   restaurants = json.load(rest)
 
-for restaurant in restaurants:
-  slugs = restaurant['slug']
-
+docs_info = os.path.join(SITE_ROOT, "data", "top_100_2017_digital_text.json")
+with open(docs_info) as info:
+  rinfo = json.load(info)
+  text = rinfo['restaurants']
 
 @app.route("/")
 def index():
@@ -39,14 +41,16 @@ def index():
 def restaurant_view(slug):
   
   restaurant_info = [x for x in restaurants if x['slug'] == slug]
-  restaurant = json.dumps(restaurant_info)
+  restaurant = restaurant_info[0]
+  article = [y for y in text if y['slug'] == slug]
 
   return render_template(
     'restaurant.html',
-    restaurant=restaurant
+    restaurant=restaurant,
+    article=article
   )
 
 @freezer.register_generator
 def restaurant_view():
   for restaurant in restaurants:
-    yield { 'slug': restaurant['slug'] }
+    yield { 'slug': restaurant['slug']}
