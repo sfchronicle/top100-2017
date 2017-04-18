@@ -84,6 +84,14 @@ h1{
   	font-size:19px;
   }
 
+  &.top{
+  	font-size:29px;
+
+  	@media @mobile{
+  		font-size:19px;
+  	}
+  }
+
   @media @mobile{
   	font-size:1.5em;
   }
@@ -98,6 +106,14 @@ h1{
 
   &.bottom{
   	font-size:19px;
+  }
+
+  &.top{
+  	font-size:29px;
+
+  	@media @mobile{
+  		font-size:19px;
+  	}
   }
 
   @media @mobile{
@@ -337,3 +353,75 @@ h1{
   float:right;
   font-size:10px;
 }
+
+
+#top-nav{
+  box-shadow: 0 1px 5px 1px #ccc;
+  position: relative;
+
+  .logo-link{
+  	position: absolute;
+    top: 0;
+    left: 0;
+    line-height:1.8;
+
+    img{
+    	width:180px;
+    	height:auto;
+    }
+
+    &.mobile{
+    	display:none;
+
+    	img{
+    		width:19px;
+
+    		@media @mobile{
+    			width:15px;
+    		}
+    	}
+
+    	@media @width650{
+    		display:block;
+    	}
+
+    	@media @mobile{
+    		padding-top:6px;
+    	}
+    }
+
+    &.desktop{
+    	@media @width650{
+    		display:none;
+    	}
+    }
+  }	
+
+  .link{
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    display:block;
+    padding: 0;
+
+    @media @width650{
+	    margin: 0 0 0 40px;
+    	display: inline-block;
+    }
+
+    @media @mobile{
+    	padding: 8px 0 2px;
+    	margin: 0 0 0 35px;
+    }
+  }
+
+  .search{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+  }
+}
+
+
+
