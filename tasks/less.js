@@ -10,7 +10,7 @@ module.exports = function(grunt) {
   var less = require("less");
   
   var options = {
-    paths: ["static/styles/"],
+    paths: ["static/styles"],
     filename: "seed.less"
   };
   
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     var done = this.async();
 
     var seeds = {
-      "static/styles/seed.less": "build/static/style.css"
+      "static/styles/seed.less": "static/styles/style.css"
     };
 
     async.forEachOf(seeds, function(dest, src, c) {

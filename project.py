@@ -7,11 +7,8 @@ app.config['TEST_PROJECT_PATH'] = 'test-proj'
 app.config['PROJECT_YEAR'] = '2017'
 
 # Site paths
-app.config['STAGING_PATH'] = ''
-app.config['PRODUCTION_PATH'] = ''
-
-# Category 
-app.config['CATEGORY'] = 'Food'
+app.config['STAGING_PATH'] = 'top2017'
+app.config['PRODUCTION_PATH'] = 'top-100-restaurants'
 
 # Publication date 
 app.config['DATE'] = '2017-04-01'
@@ -33,7 +30,7 @@ with open(docs_info) as info:
   text = rinfo['restaurants']
 
 
-@app.route("/")
+@app.route("/top-100-restaurants")
 def index():
   return render_template('index.html')
 
@@ -52,9 +49,6 @@ def restaurant_view(slug):
 
   except (KeyError, ValueError, UnboundLocalError, HTTPError) as e:
     pass
-  
-
-  
 
   return render_template(
     'restaurant.html',
@@ -63,12 +57,13 @@ def restaurant_view(slug):
     related=related,
     articleone=articleone,
     articletwo=articletwo
-
   )
+
+
 @app.errorhandler(500)
 def internal_error(error):
+  return "500 error"
 
-    return "500 error"
 @freezer.register_generator
 def restaurant_view():
   for restaurant in restaurants:

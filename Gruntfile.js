@@ -108,6 +108,9 @@ module.exports = function (grunt) {
       },
       production: {
         exec: 'python build.py production'
+      },
+      dev: {
+        exec: 'python build.py dev'
       }
     },
 
@@ -132,29 +135,19 @@ module.exports = function (grunt) {
   });
 
 
-
-  // Bring up flask server
-  grunt.registerTask('flask', 'Run flask server.', function() {
-     var spawn = require('child_process').spawn;
-     grunt.log.writeln('Starting Flask development server.');
-     // stdio: 'inherit' let us see flask output in grunt
-     var PIPE = {stdio: 'inherit'};
-     spawn('python', ['main.py']);
-  });
-
   grunt.registerTask('default', [
-    'build',
     'less',
+    'build',
     'connect:dev',
     'watch'
   ]);
 
-  // Build static files; defaults to staging. Command = 'grunt build:production'
+  // Build static files; defaults to dev. Command = 'grunt build:production'
   grunt.registerTask('build', function(target) {
     if (target) {
-      grunt.task.run (['run:' + target]);
+      grunt.task.run (['run:' + target, 'php']);
     } else {
-      grunt.task.run(['run:staging']);
+      grunt.task.run(['run:dev']);
     }
   });
 
@@ -163,40 +156,6 @@ module.exports = function (grunt) {
     grunt.task.run (['copy', 'clean']);
   });
 
-  /*
-  This module sets up a `grunt.data` object to be used for shared state between
-  modules on each run. Modules that use it should require this task to make sure
-  that they get a clean state on each run. If Grunt starts emitting events,
-  we'll use those to automatically initialize.
-  */
-  grunt.registerTask("state", "Initializes the shared state object", function() {
-    grunt.data = {};
-  });
-
-  /*
-  Loads the project.json file, as well as any matching files in the /data
-  folder, and attaches it to the grunt.data object as grunt.data.json.
-  */
-  grunt.registerTask("json", "Load JSON for templating", function() {
-    var files = grunt.file.expand(["project.json", "data/**/*.json"]);
-    grunt.task.requires("state");
-    grunt.data.json = {};
-
-    files.forEach(function(file) {
-      var json = grunt.file.readJSON(file);
-      var name = path.basename(file).replace(/(\.sheet)?\.json$/, "");
-      grunt.data.json[name] = json;
-    });
-  });
-
-  // Deploys project to server. Defaults to staging folder
-  grunt.registerTask('deploy', "Deployed project", function(target) {
-    if (target) {
-      grunt.task.run (['state', 'json', 'sync:' + target]);
-    } else {
-      grunt.task.run(['state', 'json', 'sync:staging']);
-    }
-  });
 
 
 };

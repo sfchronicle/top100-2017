@@ -67,6 +67,8 @@ Shims for Flexbox - should work on Safari and IE10+
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
 }
 body {
@@ -368,11 +370,6 @@ text {
   opacity: 1;
   height: 20px;
 }
-@media (max-width: 480px) {
-  .logo-link {
-    margin-left: 5px;
-  }
-}
 .link,
 .logo-link {
   display: inline-block;
@@ -577,8 +574,16 @@ footer::after {
 .credits .entry {
   padding-bottom: 10px;
 }
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
 h1 {
-  color: red;
+  color: blue;
   font-size: 2em;
 }
 #container {
@@ -663,6 +668,16 @@ h1 {
 .year.bottom {
   font-size: 19px;
 }
+.top100.top,
+.year.top {
+  font-size: 29px;
+}
+@media (max-width: 480px) {
+  .top100.top,
+  .year.top {
+    font-size: 19px;
+  }
+}
 @media (max-width: 480px) {
   .top100,
   .year {
@@ -678,6 +693,14 @@ h1 {
 }
 .rest.bottom {
   font-size: 19px;
+}
+.rest.top {
+  font-size: 29px;
+}
+@media (max-width: 480px) {
+  .rest.top {
+    font-size: 19px;
+  }
 }
 @media (max-width: 480px) {
   .rest {
@@ -930,6 +953,386 @@ h1 {
   font-family: antennaregular;
   float: right;
   font-size: 10px;
+}
+#top-nav {
+  box-shadow: 0 1px 5px 1px #ccc;
+  position: relative;
+}
+#top-nav .logo-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1.8;
+}
+#top-nav .logo-link img {
+  width: 180px;
+  height: auto;
+}
+#top-nav .logo-link.mobile {
+  display: none;
+}
+#top-nav .logo-link.mobile img {
+  width: 19px;
+}
+@media (max-width: 480px) {
+  #top-nav .logo-link.mobile img {
+    width: 15px;
+  }
+}
+@media (max-width: 650px) {
+  #top-nav .logo-link.mobile {
+    display: block;
+  }
+}
+@media (max-width: 480px) {
+  #top-nav .logo-link.mobile {
+    padding-top: 6px;
+  }
+}
+@media (max-width: 650px) {
+  #top-nav .logo-link.desktop {
+    display: none;
+  }
+}
+#top-nav .link {
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+  padding: 0;
+}
+@media (max-width: 650px) {
+  #top-nav .link {
+    margin: 0 0 0 40px;
+    display: inline-block;
+  }
+}
+@media (max-width: 480px) {
+  #top-nav .link {
+    padding: 8px 0 2px;
+    margin: 0 0 0 35px;
+  }
+}
+#top-nav .search {
+  position: absolute;
+  right: 65px;
+  top: 0;
+  height: 100%;
+}
+footer {
+  background: #EEE;
+  opacity: 1;
+  font-family: "AntennaRegular", Helvetica Neue, Helvetica, sans-serif;
+  border-top: 1px solid #CCC;
+  color: #666;
+  margin-top: 30px;
+  padding: 10px 0;
+}
+footer .footer-content {
+  padding: 37px 20px 52px;
+  max-width: 1200px;
+  margin: auto;
+}
+@media (max-width: 480px) {
+  footer .footer-content {
+    padding-bottom: 0;
+  }
+}
+footer .logo {
+  width: 100%;
+  padding: 0;
+  margin: 0 ;
+  border-bottom: 1px solid #ccc;
+}
+footer a {
+  color: #666;
+}
+footer a:hover {
+  color: #666;
+}
+footer .fa {
+  font-size: 20px;
+  color: #666;
+}
+footer .fa:hover {
+  color: #666;
+}
+footer h3 {
+  color: #666;
+}
+footer ul {
+  padding: 0;
+}
+footer .top-list {
+  width: 100%;
+}
+footer .hcsf_links {
+  width: 100%;
+  color: white;
+  font-size: 10px;
+}
+footer .hcsf_links li {
+  max-width: none;
+  list-style-type: none;
+  float: left;
+  padding: 0 20px;
+}
+footer .hcsf_links li.top-list {
+  padding: 0;
+}
+@media (max-width: 480px) {
+  footer .hcsf_links li {
+    padding: 0 15px;
+  }
+}
+.copyright-wrap {
+  border-top: 1px solid #CCC;
+  margin: 1.4em 0;
+}
+.copyright-wrap .hearst-logo {
+  float: left;
+  width: 90px;
+}
+.copyright-wrap .copyright {
+  float: right;
+  font-size: 10px;
+  font-family: "AntennaRegular", Helvetica Neue, Helvetica, sans-serif;
+  line-height: 1em;
+  margin: 13px 0 0;
+  padding: 0;
+}
+#top-nav {
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 2017;
+  top: 0;
+}
+.restaurant {
+  margin-top: 45px;
+}
+.restaurant p {
+  font-family: Georgia, serif;
+}
+.restaurant img {
+  width: 100%;
+}
+@media (max-width: 480px) {
+  .restaurant {
+    margin-top: 41px;
+  }
+}
+.header {
+  text-align: left;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.header .wrap {
+  padding: 15px 15px 0;
+  background: whitesmoke;
+}
+@media (max-width: 850px) {
+  .header .wrap {
+    text-align: center;
+  }
+}
+@media (max-width: 850px) {
+  .header {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+.header h1 {
+  font-family: AntennaComp;
+  font-weight: 100;
+  font-size: 3.5em;
+  line-height: 1;
+  margin: 10px 0;
+  letter-spacing: 1px;
+  color: black;
+}
+@media (max-width: 850px) {
+  .header h1 {
+    text-align: center;
+  }
+}
+@media (max-width: 650px) {
+  .header h1 {
+    font-size: 3em;
+    margin: 20px 0;
+  }
+}
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 2em;
+    margin: 10px 0 0;
+  }
+}
+.header .image {
+  line-height: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+.header .img-tablet {
+  display: none;
+}
+@media (max-width: 850px) {
+  .header .img-tablet {
+    display: block;
+  }
+}
+.fave {
+  font-family: "AntennaRegular", Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 11px;
+  background: #7a709a;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  text-transform: uppercase;
+}
+.infobox {
+  text-align: left;
+  max-width: 820px;
+  margin: 0 auto 1em;
+  padding: 10px 0;
+  font-size: 15px;
+  font-family: "AntennaRegular", Helvetica Neue, Helvetica, sans-serif;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+}
+@media (max-width: 1100px) {
+  .infobox {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 480px) {
+  .infobox {
+    padding: 5px 0;
+  }
+}
+.infobox div {
+  -webkit-flex: 0 0 44%;
+  -ms-flex: 0 0 44%;
+  flex: 0 0 44%;
+  font-family: "AntennaRegular", Helvetica Neue, Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 10px;
+}
+@media (max-width: 1100px) {
+  .infobox div {
+    margin: 10px 5px;
+  }
+}
+@media (max-width: 480px) {
+  .infobox div {
+    -webkit-flex: 0 0 40%;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    font-size: 13px;
+    margin: 3px 0;
+  }
+}
+.infobox span {
+  font-family: "AntennaRegular", Helvetica Neue, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+@media (max-width: 650px) {
+  .infobox span {
+    font-size: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .infobox span {
+    font-size: 9px;
+  }
+}
+.article {
+  margin: 2em 0 0;
+}
+@media (max-width: 480px) {
+  .article {
+    margin-top: 10px;
+  }
+}
+.photos {
+  max-width: 900px;
+  margin: 1em auto 4em;
+}
+.article-img {
+  padding: 10px;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: -10px;
+}
+.swiper-pagination-bullet-active {
+  background: #7a709a;
+}
+#related-rest {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+#related-rest .wrap {
+  -webkit-flex: 0 0 30%;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
+  padding: 10px;
+}
+@media (max-width: 650px) {
+  #related-rest .wrap {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
+}
+#related-rest .wrap .name {
+  color: #000;
+  font-size: 16px;
+}
+#related-rest .rtitle {
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  font-family: "AntennaRegular", Helvetica Neue, Helvetica, sans-serif;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  #related-rest .rtitle {
+    font-size: 15px;
+  }
 }
 .hidden {
   display: none;

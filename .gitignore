@@ -4,6 +4,7 @@
 migrations/
 node_modules/
 build/
+*.css
 data/
 .webassets-cache/
 local_settings.py

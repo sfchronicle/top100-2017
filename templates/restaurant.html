@@ -4,7 +4,7 @@
 {% include 'components/_social.html' %}
 {% endblock %}
 
-<!-- Paywall defaults at meterA. Change below if needed  -->
+<!-- Paywall defaults at meterA  -->
 {% block paywall %}meterA{% endblock %}
 
 <!-- Authors for analytics to track -->
@@ -12,105 +12,105 @@
 
 {% block content %}
 
-	
-	{% set photos = restaurant.wcm_img.split(' ') %}
-	
-	{% include 'components/_top-nav.html' %}
+  
+  {% set photos = restaurant.wcm_img.split(' ') %}
+  
+  {% include 'components/_top-nav.html' %}
 
 
 
-	<div class="restaurant">
-	  
-		<div class="header">
-			<div class="image" style="background-image: url(http://ww2.hdnux.com/photos/54/11/64/{{ photos[1] }}/3/1200x0.jpg);">
-	  		<img class="img-tablet" src="http://ww2.hdnux.com/photos/54/11/64/{{ photos[1] }}/3/1200x0.jpg">
-	  	</div>
-			<div class="wrap">
-				<h1>{{restaurant.Name}}</h1>
-				<div class="fave"><span><i class="fa fa-star-o" aria-hidden="true"></i> Add to</span><span><i class="fa fa-star" aria-hidden="true"></i> Remove from</span> Favorites</div>
-				<div class="infobox">
-					<div><span>Cuisine</span><br>{{restaurant.Cuisine}}</div>
-					<div><span>Noise</span><br>
-						{% if restaurant.Noise == 'ONE BELL' %}
+  <div class="restaurant">
+    
+    <div class="header">
+      <div class="image" style="background-image: url(http://ww2.hdnux.com/photos/54/11/64/{{ photos[1] }}/3/1200x0.jpg);">
+        <img class="img-tablet" src="http://ww2.hdnux.com/photos/54/11/64/{{ photos[1] }}/3/1200x0.jpg">
+      </div>
+      <div class="wrap">
+        <h1>{{restaurant.Name}}</h1>
+        <div class="fave"><span><i class="fa fa-star-o" aria-hidden="true"></i> Add to</span><span><i class="fa fa-star" aria-hidden="true"></i> Remove from</span> Favorites</div>
+        <div class="infobox">
+          <div><span>Cuisine</span><br>{{restaurant.Cuisine}}</div>
+          <div><span>Noise</span><br>
+            {% if restaurant.Noise == 'ONE BELL' %}
                 <i class="fa fa-bell"></i>
             {% elif restaurant.Noise == 'TWO BELLS' %}
-            	   <i class="fa fa-bell"></i>
+                 <i class="fa fa-bell"></i>
             {% elif restaurant.Noise == 'THREE BELLS' %}
                  <i class="fa fa-bell"></i>
-            	   <i class="fa fa-bell"></i>
-            	   <i class="fa fa-bell"></i>
+                 <i class="fa fa-bell"></i>
+                 <i class="fa fa-bell"></i>
             {% elif restaurant.Noise == 'FOUR BELLS' %}
                  <i class="fa fa-bell"></i>
-            	   <i class="fa fa-bell"></i>
-            	   <i class="fa fa-bell"></i>
-            	   <i class="fa fa-bell"></i>
+                 <i class="fa fa-bell"></i>
+                 <i class="fa fa-bell"></i>
+                 <i class="fa fa-bell"></i>
             {% elif restaurant.Noise == 'BOMB' %}
                  <i class="fa fa-bomb"></i>
-          	{% endif %}
-        	</div>
-					<div><span>Neighborhood</span><br>{{restaurant.SubRegion}}</div>
-					<div><span>Phone</span><br>{{restaurant.Phone}}</div>
-					<div><span>Address</span><br>{{restaurant.GoogleAddress}}</div>
-					<div><span>Prices</span><br>{{restaurant.Prices}}</div>
-					{% for r in article %}
-        	<div><span>Vitals</span><br>{{r.Vitals}}</div>
-  				{% endfor %}
+            {% endif %}
+          </div>
+          <div><span>Neighborhood</span><br>{{restaurant.SubRegion}}</div>
+          <div><span>Phone</span><br>{{restaurant.Phone}}</div>
+          <div><span>Address</span><br>{{restaurant.GoogleAddress}}</div>
+          <div><span>Prices</span><br>{{restaurant.Prices}}</div>
+          {% for r in article %}
+          <div><span>Vitals</span><br>{{r.Vitals}}</div>
+          {% endfor %}
           {% if restaurant.Website %}
-  				<div><span>Website</span><br><a href="{{restaurant.Website}}" target="_blank">{{restaurant.Website}}</a></div>
+          <div><span>Website</span><br><a href="{{restaurant.Website}}" target="_blank">{{restaurant.Website}}</a></div>
           {% endif %}
-				</div>
-			</div>
-		</div>
+        </div>
+      </div>
+    </div>
 
-		<div class="article">
-			
-		  {% for r in article %}
-      	<p>{{ r.Text }}</p>
-  		{% endfor %}	
+    <div class="article">
+  
+      {% for r in article %}
+        <p>{{ r.Text }}</p>
+      {% endfor %}  
 
-  		<div class="photos swiper-container">
-  			{% set articlePhotos = photos.pop(1) %}	
-				<div class="swiper-wrapper">
-	  			{% for f in photos %}
-	    		<div class="article-img swiper-slide""><img src="http://ww2.hdnux.com/photos/54/11/64/{{f}}/3/premium_gallery_landscape.jpg"></div>
-	  			{% endfor %}
-				</div>
-				<div class="swiper-pagination"></div>
-  		</div>
+      <div class="photos swiper-container">
+        {% set articlePhotos = photos.pop(1) %} 
+        <div class="swiper-wrapper">
+          {% for f in photos %}
+          <div class="article-img swiper-slide"><img src="http://ww2.hdnux.com/photos/54/11/64/{{f}}/3/premium_gallery_landscape.jpg"></div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
 
-  		{% set photoone = articleone[0]['wcm_img'].split(' ') %}
-  		{% set phototwo = articletwo[0]['wcm_img'].split(' ') %}
-			
-			<hr>
+      {% set photoone = articleone[0]['wcm_img'].split(' ') %}
+      {% set phototwo = articletwo[0]['wcm_img'].split(' ') %}
+      
+      <hr>
 
-  		<div id="related-rest">
-  			<div class="rtitle">Related restaurants</div>
-  			<div class="wrap">
-  				<a href="{{articleone[0]['slug']}}">
-  					<img src="http://ww2.hdnux.com/photos/54/11/64/{{ photoone[0] }}/3/premium_landscape.jpg">
-  					<div class="name">
+      <div id="related-rest">
+        <div class="rtitle">Related restaurants</div>
+        <div class="wrap">
+          <a href="{{ url_for('index') }}{{articleone[0]['slug']}}">
+            <img src="http://ww2.hdnux.com/photos/54/11/64/{{ photoone[0] }}/3/premium_landscape.jpg">
+            <div class="name">
               <div>{{articleone[0]['Name']}}</div>
             </div>
             <div class="info"></div>
-  				</a>
-  			</div>
+          </a>
+        </div>
 
-  			<div class="wrap">
-  				<a href="{{articletwo[0]['slug']}}">
-  					<img src="http://ww2.hdnux.com/photos/54/11/64/{{ phototwo[0] }}/3/premium_landscape.jpg">
-  					<div class="name">
+        <div class="wrap">
+          <a href="{{ url_for('index') }}{{articletwo[0]['slug']}}">
+            <img src="http://ww2.hdnux.com/photos/54/11/64/{{ phototwo[0] }}/3/premium_landscape.jpg">
+            <div class="name">
               <div>{{articletwo[0]['Name']}}</div>
             </div>
             <div class="info"></div>
-  				</a>
-  			</div>
-			</div>
-		
+          </a>
+        </div>
+      </div>
+    
 
-		{% include 'components/_footer.html' %}
+    {% include 'components/_footer.html' %}
 
 
-	</div>
+  </div>
 
 {% endblock %}
 
@@ -121,3 +121,4 @@
   });
 </script>
 {% endblock %}
+
