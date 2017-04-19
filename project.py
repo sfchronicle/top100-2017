@@ -42,21 +42,21 @@ def restaurant_view(slug):
   restaurant = restaurant_info[0]
   article = [y for y in text if y['slug'] == slug]
 
-  try:
-    related = article[0]['Related'].split(' ')
-    articleone = [y for y in restaurants if y['slug'] == related[0]]
-    articletwo = [y for y in restaurants if y['slug'] == related[1]]
+  # try:
+  #   related = article[0]['Related'].split(' ')
+  #   articleone = [y for y in restaurants if y['slug'] == related[0]]
+  #   articletwo = [y for y in restaurants if y['slug'] == related[1]]
 
-  except (KeyError, ValueError, UnboundLocalError, HTTPError) as e:
-    pass
+  # except (KeyError, ValueError, UnboundLocalError, HTTPError) as e:
+  #   pass
 
   return render_template(
     'restaurant.html',
     restaurant=restaurant,
     article=article,
-    related=related,
-    articleone=articleone,
-    articletwo=articletwo
+    # related=related,
+    # articleone=articleone,
+    # articletwo=articletwo
   )
 
 
