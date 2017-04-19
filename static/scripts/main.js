@@ -52,3 +52,12 @@ App = {
   }
   window.__twitterIntentHandler = true;
 }());
+
+
+
+
+var mySwiper = new Swiper ('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        height: 100
+      });  

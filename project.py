@@ -32,6 +32,7 @@ with open(docs_info) as info:
   rinfo = json.load(info)
   text = rinfo['restaurants']
 
+
 @app.route("/")
 def index():
   return render_template('index.html')
@@ -44,12 +45,30 @@ def restaurant_view(slug):
   restaurant = restaurant_info[0]
   article = [y for y in text if y['slug'] == slug]
 
+  try:
+    related = article[0]['Related'].split(' ')
+    articleone = [y for y in restaurants if y['slug'] == related[0]]
+    articletwo = [y for y in restaurants if y['slug'] == related[1]]
+
+  except (KeyError, ValueError, UnboundLocalError, HTTPError) as e:
+    pass
+  
+
+  
+
   return render_template(
     'restaurant.html',
     restaurant=restaurant,
-    article=article
-  )
+    article=article,
+    related=related,
+    articleone=articleone,
+    articletwo=articletwo
 
+  )
+@app.errorhandler(500)
+def internal_error(error):
+
+    return "500 error"
 @freezer.register_generator
 def restaurant_view():
   for restaurant in restaurants:

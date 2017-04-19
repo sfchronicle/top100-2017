@@ -14,6 +14,7 @@
 
 	
 	{% set photos = restaurant.wcm_img.split(' ') %}
+	
 	{% include 'components/_top-nav.html' %}
 
 
@@ -54,22 +55,59 @@
 					{% for r in article %}
         	<div><span>Vitals</span><br>{{r.Vitals}}</div>
   				{% endfor %}
+          {% if restaurant.Website %}
   				<div><span>Website</span><br><a href="{{restaurant.Website}}" target="_blank">{{restaurant.Website}}</a></div>
-					
-
+          {% endif %}
 				</div>
 			</div>
-			
 		</div>
 
 		<div class="article">
 			
-			 {% for r in article %}
-            	<p>{{ r.Text }}</p>
-  			{% endfor %}	
-		</div>		
+		  {% for r in article %}
+      	<p>{{ r.Text }}</p>
+  		{% endfor %}	
+
+  		<div class="photos swiper-container">
+  			{% set articlePhotos = photos.pop(1) %}	
+				<div class="swiper-wrapper">
+	  			{% for f in photos %}
+	    		<div class="article-img swiper-slide""><img src="http://ww2.hdnux.com/photos/54/11/64/{{f}}/3/premium_gallery_landscape.jpg"></div>
+	  			{% endfor %}
+				</div>
+				<div class="swiper-pagination"></div>
+  		</div>
+
+  		{% set photoone = articleone[0]['wcm_img'].split(' ') %}
+  		{% set phototwo = articletwo[0]['wcm_img'].split(' ') %}
+			
+			<hr>
+
+  		<div id="related-rest">
+  			<div class="rtitle">Related restaurants</div>
+  			<div class="wrap">
+  				<a href="{{articleone[0]['slug']}}">
+  					<img src="http://ww2.hdnux.com/photos/54/11/64/{{ photoone[0] }}/3/premium_landscape.jpg">
+  					<div class="name">
+              <div>{{articleone[0]['Name']}}</div>
+            </div>
+            <div class="info"></div>
+  				</a>
+  			</div>
+
+  			<div class="wrap">
+  				<a href="{{articletwo[0]['slug']}}">
+  					<img src="http://ww2.hdnux.com/photos/54/11/64/{{ phototwo[0] }}/3/premium_landscape.jpg">
+  					<div class="name">
+              <div>{{articletwo[0]['Name']}}</div>
+            </div>
+            <div class="info"></div>
+  				</a>
+  			</div>
+			</div>
 		
 
+		{% include 'components/_footer.html' %}
 
 
 	</div>
