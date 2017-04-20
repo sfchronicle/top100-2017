@@ -38,7 +38,7 @@ module.exports = function (grunt) {
       },
       less: {
         files: ['static/styles/*.less'],
-        tasks: ['less']
+        tasks: ['build', 'less']
       },
       reload: {
         files: ['templates/**/*.html','static/images/**/*'],

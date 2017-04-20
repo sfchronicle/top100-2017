@@ -1019,6 +1019,17 @@ h1 {
   top: 0;
   height: 100%;
 }
+.photo-byline {
+  margin-top: 10px;
+  font-size: 12px;
+  font-family: "AntennaRegular", Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 100;
+}
+@media (max-width: 900px) {
+  .photo-byline {
+    padding-left: 10px;
+  }
+}
 footer {
   background: #EEE;
   opacity: 1;
@@ -1284,11 +1295,6 @@ footer .hcsf_links li.top-list {
 }
 .article-img {
   padding: 10px;
-}
-.swiper-container-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-custom,
-.swiper-pagination-fraction {
-  bottom: -10px;
 }
 .swiper-pagination-bullet-active {
   background: #7a709a;
