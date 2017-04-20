@@ -1134,6 +1134,9 @@ footer .hcsf_links li.top-list {
 .header .wrap {
   padding: 15px 15px 0;
   background: whitesmoke;
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
 }
 @media (max-width: 850px) {
   .header .wrap {
@@ -1142,9 +1145,7 @@ footer .hcsf_links li.top-list {
 }
 @media (max-width: 850px) {
   .header {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+    display: block;
   }
 }
 .header h1 {

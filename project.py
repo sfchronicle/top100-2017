@@ -30,7 +30,7 @@ with open(docs_info) as info:
   text = rinfo['restaurants']
 
 
-@app.route("/top-100-restaurants")
+@app.route("/")
 def index():
   return render_template('index.html')
 
