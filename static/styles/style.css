@@ -1242,7 +1242,7 @@ footer .hcsf_links li.top-list {
 .infobox {
   text-align: left;
   max-width: 820px;
-  margin: 0 auto 1em;
+  margin: 0 auto;
   padding: 10px 0;
   font-size: 15px;
   font-family: "AntennaRegular", Helvetica Neue, Helvetica, sans-serif;
@@ -1264,7 +1264,7 @@ footer .hcsf_links li.top-list {
 }
 @media (max-width: 480px) {
   .infobox {
-    padding: 5px 0;
+    padding: 5px 0 20px;
   }
 }
 .infobox div {
@@ -1282,9 +1282,9 @@ footer .hcsf_links li.top-list {
 }
 @media (max-width: 480px) {
   .infobox div {
-    -webkit-flex: 0 0 40%;
-    -ms-flex: 0 0 40%;
-    flex: 0 0 40%;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
     font-size: 13px;
     margin: 3px 0;
   }
@@ -1304,6 +1304,11 @@ footer .hcsf_links li.top-list {
   .infobox span {
     font-size: 9px;
   }
+}
+.infobox .vitals {
+  -webkit-flex: 0 1 100%;
+  -ms-flex: 0 1 100%;
+  flex: 0 1 100%;
 }
 .article {
   margin: 2em 0 0;

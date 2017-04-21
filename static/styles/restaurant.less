@@ -99,7 +99,7 @@
 .infobox{
 	text-align:left;
   max-width: 820px;
-  margin: 0 auto 1em;
+  margin: 0 auto;
   padding: 10px 0;
   font-size: 15px;
   font-family:@title;
@@ -113,7 +113,7 @@
   }
 
   @media @mobile{
-  	padding:5px 0; 	
+  	padding:5px 0 20px; 	
   }
 
   div{
@@ -127,7 +127,7 @@
   	}
 
   	@media @mobile{
-  	.flex(0 0 40%);
+  	.flex(0 0 100%);
   		font-size:13px;
   		margin:3px 0;
   	}
@@ -146,6 +146,10 @@
   	@media @mobile{
   		font-size:9px;
   	}
+  }
+
+  .vitals{
+  	.flex(0 1 100%);
   }
 }
 

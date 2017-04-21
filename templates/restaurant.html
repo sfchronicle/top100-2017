@@ -23,13 +23,15 @@
 
     <div class="header">
       <div class="image" style="background-image: url(http://ww2.hdnux.com/photos/54/11/64/{{ photos[1] }}/3/1200x0.jpg);">
-        <img class="img-tablet" src="http://ww2.hdnux.com/photos/54/11/64/{{ photos[1] }}/3/1200x0.jpg">
+        <img class="img-tablet" src="http://ww2.hdnux.com/photos/54/11/64/{{ photos[1] }}/3/premium_gallery_landscape.jpg">
       </div>
       <div class="wrap">
         <h1>{{restaurant.Name}}</h1>
         <div class="fave"><span><i class="fa fa-star-o" aria-hidden="true"></i> Add to</span><span><!-- <i class="fa fa-star" aria-hidden="true"></i> Remove from</span> --> Favorites</div>
         <div class="infobox">
           <div><span>Cuisine</span><br>{{restaurant.Cuisine}}</div>
+          <div><span>Neighborhood</span><br>{{restaurant.SubRegion}}</div>
+          <div><span>Phone</span><br><a href="tel:{{restaurant.Phone.replace('(','').replace(') ','-')}}" class="phone-link"><i class="fa fa-phone" aria-hidden="true"></i>{{restaurant.Phone}}</a></div>
           <div><span>Noise</span><br>
             {% if restaurant.Noise == 'ONE BELL' %}
                 <i class="fa fa-bell"></i>
@@ -47,17 +49,19 @@
             {% elif restaurant.Noise == 'BOMB' %}
                  <i class="fa fa-bomb"></i>
             {% endif %}
-          </div>
-          <div><span>Neighborhood</span><br>{{restaurant.SubRegion}}</div>
-          <div><span>Phone</span><br><a href="tel:{{restaurant.Phone.replace('(','').replace(') ','-')}}" class="phone-link"><i class="fa fa-phone" aria-hidden="true"></i>{{restaurant.Phone}}</a></div>
+          </div>          
           <div><span>Address</span><br><a href="https://www.google.com/maps/place/{{restaurant.GoogleAddress}}"  target="_blank" class="google-link"><i class="fa fa-map-marker" aria-hidden="true"></i>{{restaurant.GoogleAddress}}</a></div>
-          <div><span>Prices</span><br>{{restaurant.Prices}}</div>
-          {% for r in article %}
-          <div><span>Vitals</span><br>{{r.Vitals}}</div>
-          {% endfor %}
           {% if restaurant.Website %}
           <div><span>Website</span><br><a href="{{restaurant.Website}}" target="_blank" class="restaurant-link"><i class="fa fa-external-link" aria-hidden="true"></i>{{restaurant.Website}}</a></div>
           {% endif %}
+          <div><span>Prices</span><br>{{restaurant.Prices}}</div>
+          <div><span>Seats</span><br>{{restaurant.Seats}}</div>
+          <div><span>Specialties</span><br>{{restaurant.Specialties}}</div>
+          <div><span>Parking</span><br>{{restaurant.Parking}}</div>
+          {% for r in article %}
+          <div class="vitals"><span>Vitals</span><br>{{r.Vitals}}</div>
+          {% endfor %}
+          
         </div>
       </div>
     </div>
