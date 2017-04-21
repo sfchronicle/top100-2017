@@ -1041,7 +1041,10 @@ h1 {
     padding-left: 10px;
   }
 }
-.fa-phone {
+.phone-link .fa-phone {
+  padding-right: 5px;
+}
+.google-link .fa-map-marker {
   padding-right: 5px;
 }
 footer {

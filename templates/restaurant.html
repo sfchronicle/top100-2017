@@ -50,7 +50,7 @@
           </div>
           <div><span>Neighborhood</span><br>{{restaurant.SubRegion}}</div>
           <div><span>Phone</span><br><a href="tel:{{restaurant.Phone.replace('(','').replace(') ','-')}}" class="phone-link"><i class="fa fa-phone" aria-hidden="true"></i>{{restaurant.Phone}}</a></div>
-          <div><span>Address</span><br>{{restaurant.GoogleAddress}}</div>
+          <div><span>Address</span><br><a href="https://www.google.com/maps/place/{{restaurant.GoogleAddress}}"  target="_blank" class="google-link"><i class="fa fa-map-marker" aria-hidden="true"></i>{{restaurant.GoogleAddress}}</a></div>
           <div><span>Prices</span><br>{{restaurant.Prices}}</div>
           {% for r in article %}
           <div><span>Vitals</span><br>{{r.Vitals}}</div>
