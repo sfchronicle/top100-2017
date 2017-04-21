@@ -56,7 +56,7 @@
           <div><span>Vitals</span><br>{{r.Vitals}}</div>
           {% endfor %}
           {% if restaurant.Website %}
-          <div><span>Website</span><br><a href="{{restaurant.Website}}" target="_blank">{{restaurant.Website}}</a></div>
+          <div><span>Website</span><br><a href="{{restaurant.Website}}" target="_blank" class="restaurant-link"><i class="fa fa-external-link" aria-hidden="true"></i>{{restaurant.Website}}</a></div>
           {% endif %}
         </div>
       </div>

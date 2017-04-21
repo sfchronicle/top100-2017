@@ -1047,6 +1047,9 @@ h1 {
 .google-link .fa-map-marker {
   padding-right: 5px;
 }
+.restaurant-link .fa-external-link {
+  padding-right: 5px;
+}
 footer {
   background: #EEE;
   opacity: 1;
