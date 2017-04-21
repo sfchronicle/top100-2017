@@ -1050,6 +1050,10 @@ h1 {
 .restaurant-link .fa-external-link {
   padding-right: 5px;
 }
+.swiper-pagination-bullet {
+  height: 12px !important;
+  width: 12px !important;
+}
 footer {
   background: #EEE;
   opacity: 1;
