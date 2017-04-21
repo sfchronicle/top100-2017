@@ -14,7 +14,7 @@ app.config['PRODUCTION_PATH'] = 'top-100-restaurants'
 app.config['DATE'] = '2017-04-01'
 
 # Hashtag
-app.config['HASHTAG'] = ''
+app.config['HASHTAG'] = 'Top100restaurants'
 
 
 
