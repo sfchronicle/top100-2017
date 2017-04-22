@@ -1,25 +1,26 @@
-{% set photoone = articleone[0]['wcm_img'].split(' ') %}
-      {% set phototwo = articletwo[0]['wcm_img'].split(' ') %}
-      
+{% set next_photo = next_article[0].wcm_img.split(' ') %}
+{% set prev_photo = prev_article[0].wcm_img.split(' ') %}
+
+
       <hr>
 
       <div id="related-rest">
         <div class="rtitle">Related restaurants</div>
         <div class="wrap">
-          <a href="{{ url_for('index') }}{{articleone[0]['slug']}}">
-            <img src="http://ww2.hdnux.com/photos/54/11/64/{{ photoone[0] }}/3/premium_landscape.jpg">
+          <a href="{{ url_for('index') }}{{prev_article[0]['slug']}}">
+            <img src="http://ww2.hdnux.com/photos/54/11/64/{{ next_photo[0] }}/3/premium_landscape.jpg">
             <div class="name">
-              <div>{{articleone[0]['Name']}}</div>
+              <div>{{prev_article[0]['Name']}}</div>
             </div>
             <div class="info"></div>
           </a>
         </div>
 
         <div class="wrap">
-          <a href="{{ url_for('index') }}{{articletwo[0]['slug']}}">
-            <img src="http://ww2.hdnux.com/photos/54/11/64/{{ phototwo[0] }}/3/premium_landscape.jpg">
+          <a href="{{ url_for('index') }}{{next_article[0]['slug']}}">
+            <img src="http://ww2.hdnux.com/photos/54/11/64/{{ prev_photo[0] }}/3/premium_landscape.jpg">
             <div class="name">
-              <div>{{articletwo[0]['Name']}}</div>
+              <div>{{next_article[0]['Name']}}</div>
             </div>
             <div class="info"></div>
           </a>

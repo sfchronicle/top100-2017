@@ -1,5 +1,6 @@
 from flask import render_template, redirect, url_for, request, json
 from app import app, freezer
+from itertools import tee, islice, chain, izip
 
 import os
 
@@ -42,21 +43,17 @@ def restaurant_view(slug):
   restaurant = restaurant_info[0]
   article = [y for y in text if y['slug'] == slug]
 
-  # try:
-  #   related = article[0]['Related'].split(' ')
-  #   articleone = [y for y in restaurants if y['slug'] == related[0]]
-  #   articletwo = [y for y in restaurants if y['slug'] == related[1]]
+  next_article = [y for y in restaurants if y['slug'] == restaurant['next']]
+  prev_article = [y for y in restaurants if y['slug'] == restaurant['previous']]
 
-  # except (KeyError, ValueError, UnboundLocalError, HTTPError) as e:
-  #   pass
 
   return render_template(
     'restaurant.html',
     restaurant=restaurant,
     article=article,
-    # related=related,
-    # articleone=articleone,
-    # articletwo=articletwo
+    restaurants=restaurants,
+    prev_article=prev_article,
+    next_article=next_article
   )
 
 
