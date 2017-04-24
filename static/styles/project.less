@@ -3,6 +3,10 @@ h1{
 	font-size:2em;
 }
 
+hr{
+	width:80%
+}
+
 #container{
 	.display-flex;
 
@@ -190,12 +194,14 @@ h1{
 
 .name{
 	font-size:1em;
-	font-family:@title;
+	font-family:@sans-serif;
 	.display-flex;
 	.justify-content(space-between);
 }
 .info{
-	font-size:0.85em;
+	font-family:@title;
+	font-size:14px;
+	color:#333;
 }
 
 .save-restaurant {
@@ -367,6 +373,11 @@ h1{
   font-family: antennaregular;
   float:right;
   font-size:10px;
+
+  &.related{
+  	float:none;
+  	margin-bottom:10px;
+  }
 }
 
 

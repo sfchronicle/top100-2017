@@ -45,6 +45,7 @@ def restaurant_view(slug):
 
   next_article = [y for y in restaurants if y['slug'] == restaurant['next']]
   prev_article = [y for y in restaurants if y['slug'] == restaurant['previous']]
+  nextone_article = [y for y in restaurants if y['slug'] == restaurant['nextone']]
 
 
   return render_template(
@@ -53,7 +54,8 @@ def restaurant_view(slug):
     article=article,
     restaurants=restaurants,
     prev_article=prev_article,
-    next_article=next_article
+    next_article=next_article,
+    nextone_article=nextone_article
   )
 
 
