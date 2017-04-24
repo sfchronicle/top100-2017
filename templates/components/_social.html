@@ -1,3 +1,4 @@
+{% set photos = restaurant.wcm_img.split(' ') %}
     <!-- BEGIN TWITTER SUMMARY CARD -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{restaurant.PageTitle}}">
@@ -11,5 +12,5 @@
     <meta property="og:title" content="{{restaurant.FacebookTitle}}">
     <meta property="og:site_name" content="San Francisco Chronicle">
     <meta property="og:url" content="http://projects.sfchronicle.com/{{config.PROJECT_YEAR}}/{{config.PRODUCTION_PATH}}/{{restaurant.slug}}">
-    <meta property="og:image" content="http://projects.sfchronicle.com/{{config.PROJECT_YEAR}}/{{config.PRODUCTION_PATH}}/static/images/social/{{restaurant.slug}}.jpg">
+    <meta property="og:image" content="http://ww2.hdnux.com/photos/54/11/64/{{ photos[1] }}/3/premium_gallery_landscape.jpg">
     <meta property="og:description" content="{{restaurant.FacebookDescription|safe}}">
