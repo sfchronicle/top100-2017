@@ -363,7 +363,7 @@ hr{
 
 .btn-link{
 
-	background-color: #7a709a;
+	background-color: @main;
   margin: 0;
   padding: 12px 9px;
   border: 1px solid #a09ab6;
@@ -373,6 +373,11 @@ hr{
   font-family: antennaregular;
   float:right;
   font-size:10px;
+
+  &:hover{
+  	color: @main;
+  	background-color:#fff;
+  }
 
   &.related{
   	float:none;
