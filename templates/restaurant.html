@@ -52,7 +52,7 @@
           </div>
           <div><span>Address</span><br><a href="https://www.google.com/maps/place/{{restaurant.GoogleAddress}}"  target="_blank" class="google-link"><i class="fa fa-map-marker" aria-hidden="true"></i>{{restaurant.GoogleAddress}}</a></div>
           {% if restaurant.Website %}
-          <div><span>Website</span><br><a href="{{restaurant.Website}}" target="_blank" class="restaurant-link"><i class="fa fa-external-link" aria-hidden="true"></i>{{restaurant.Website|replace('http://', '')}}</a></div>
+          <div><span>Website</span><br><a href="{{restaurant.Website}}" target="_blank" class="restaurant-link"><i class="fa fa-external-link" aria-hidden="true"></i>{{restaurant.Website}}</a></div>
           {% endif %}
           <div><span>Prices</span><br>{{restaurant.Prices}}</div>
           <div><span>Seats</span><br>{{restaurant.Seats}}</div>
