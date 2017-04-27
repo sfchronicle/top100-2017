@@ -26,7 +26,7 @@
         <img class="img-tablet" src="http://ww3.hdnux.com/photos/60/22/02/{{ photos[1] }}/7/premium_gallery_landscape.jpg?">
       </div>
       <div class="wrap">
-        <h1>{{restaurant.Name}}</h1>
+        <h1>{{restaurant.Name}} {{restaurant.otherName|safe}}</h1>
         <!-- <div class="fave"><span><i class="fa fa-star-o" aria-hidden="true"></i> Add to</span><span><i class="fa fa-star" aria-hidden="true"></i> Remove from</span> Favorites</div> -->
         <div class="infobox">
           <div><span>Cuisine</span><br>{{restaurant.Cuisine}}</div>
