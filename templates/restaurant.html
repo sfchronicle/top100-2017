@@ -49,7 +49,7 @@
             {% elif restaurant.Noise == 'BOMB' %}
                  <i class="fa fa-bomb"></i>
             {% endif %}
-          </div>          
+          </div>
           <div><span>Address</span><br><a href="https://www.google.com/maps/place/{{restaurant.GoogleAddress}}"  target="_blank" class="google-link"><i class="fa fa-map-marker" aria-hidden="true"></i>{{restaurant.GoogleAddress}}</a></div>
           {% if restaurant.Website %}
           <div><span>Website</span><br><a href="{{restaurant.Website}}" target="_blank" class="restaurant-link"><i class="fa fa-external-link" aria-hidden="true"></i>{{restaurant.Website|replace('http://', '')}}</a></div>
@@ -58,10 +58,24 @@
           <div><span>Seats</span><br>{{restaurant.Seats}}</div>
           <div><span>Specialties</span><br>{{restaurant.Specialties}}</div>
           <div><span>Parking</span><br>{{restaurant.Parking}}</div>
+
+          {% if restaurant.otherlocation == 'Yes' %}
+            <div><span>Other location</span><br>{{restaurant.otherlocationname}}
+              <br><a href="https://www.google.com/maps/place/{{restaurant.OtherLocationGoogleAddress}}"  target="_blank" class="google-link"><i class="fa fa-map-marker" aria-hidden="true"></i>{{restaurant.OtherLocationGoogleAddress}}</a>
+              <br><a href="tel:{{restaurant.OtherLocationPhone.replace('(','').replace(') ','-')}}" class="phone-link"><i class="fa fa-phone" aria-hidden="true"></i>{{restaurant.OtherLocationPhone}}</a>
+            </div>
+          {% endif %}
+          {% if restaurant.otherotherlocation == 'Yes' %}
+            <div><span>Other location</span><br>{{restaurant.otherotherlocationname}}
+              <br><a href="https://www.google.com/maps/place/{{restaurant.OtherOtherLocationGoogleAddress}}"  target="_blank" class="google-link"><i class="fa fa-map-marker" aria-hidden="true"></i>{{restaurant.OtherOtherLocationGoogleAddress}}</a>
+              <br><a href="tel:{{restaurant.OtherOtherLocationPhone.replace('(','').replace(') ','-')}}" class="phone-link"><i class="fa fa-phone" aria-hidden="true"></i>{{restaurant.OtherOtherLocationPhone}}</a>
+            </div>
+          {% endif %}
+
           {% for r in article %}
           <div class="vitals"><span>Vitals</span><br>{{r.Vitals}}</div>
           {% endfor %}
-          
+
         </div>
       </div>
     </div>
